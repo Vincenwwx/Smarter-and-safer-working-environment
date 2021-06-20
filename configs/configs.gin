@@ -1,0 +1,6 @@
+# Actuators
+LEDs_controller.__init__.red_address =
+LEDs_controller.__init__.green_address =
+LEDs_controller.__init__.yellow_address =
+
+buzzer_controller.__init__.sounds_path =
