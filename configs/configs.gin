@@ -1,6 +1,16 @@
 # Actuators
-LEDs_controller.__init__.red_address =
-LEDs_controller.__init__.green_address =
-LEDs_controller.__init__.yellow_address =
+LEDs_controller.__init__.red_address = 8
+LEDs_controller.__init__.green_address = 10
+LEDs_controller.__init__.yellow_address = 16
+
+ventilator_controller.__init__.vent_address = 18
 
 buzzer_controller.__init__.sounds_path =
+
+# Sensors
+DHT_data = 11
+Light_data = 13
+IR1 = 15
+IR2 = 19
+IR3 = 21
+Temperature_data = 27

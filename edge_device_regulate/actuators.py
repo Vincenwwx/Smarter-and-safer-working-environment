@@ -1,8 +1,10 @@
 import gin
+import RPi.GPIO as GPIO
 
-CLOSED = 0
-OPEN = 1
+False = 0
+True = 1
 
+GPIO.setmode(GPIO.BOARD)
 
 @gin.configurable
 class LEDs_controller:
@@ -10,6 +12,7 @@ class LEDs_controller:
     To-Do:
         Define the GPIO in configs/configs.gin
     """
+
 
     def __init__(self, red_address, green_address, yellow_address):
         self.red_addr = red_address
@@ -19,11 +22,18 @@ class LEDs_controller:
         self.green_status = CLOSED
         self.yellow_status = CLOSED
 
+    
+    def config_led(): # Config pins as output. Required in initialization
+        GPIO.setup(red_addr, GPIO.OUT)
+        GPIO.setup(green_addr, GPIO.OUT)
+        GPIO.setup(yellow_addr, GPIO.OUT)
+
+
     def set_led(self, name, status):
         """
         set the LED status
         :param   name:      name of the LED to set,
-        :param   status:    0 - OFF, 1 - ON
+        :param   status:    0 - False, 1 - True
         :return: boolean    True if successfully set, otherwise False
         :exception:         turn on the LED when it is on,
                             or turn off the LED when it is off
@@ -31,26 +41,55 @@ class LEDs_controller:
         if name not in ["green", "red", "yellow"]:
             raise ValueError("Please check the LED you want to control")
         if name == "green":
+            GPIO.output(green_addr,status)
             pass
         elif name == "red":
+            GPIO.output(red_addr,status)
             pass
         elif name == "yellow":
+            GPIO.output(yellow_addr,status)
             pass
 
+class Ventilator_controller:
 
-class Door_controller:
-
-    def __init__(self):
-        self.status = CLOSED
+    def __init__(self, vent_address):
+        self.vent_addr = vent_address
+        self.status = False
+    
+    def config_ventilator(): # Config pins as output. Required in initialization
+        GPIO.setup(vent_addr, GPIO.OUT) #Relay control pin
 
     def set_door(self, status):
         """
-        Control the door to be opened or closed at the entrance
-        :param status: 0 - OFF, 1 - ON
+        Control the door to be opened or closed at the entrance. No physical output.
+        :param status: 0 - False, 1 - True
         :return: True if successfully set, otherwise False
         :exception: open the gate when it is opened,
                     or closed the door when it is close
         """
+        if status == False:
+            print("Door is closed")
+        elif status == True:
+            print("Door is opened")
+        pass
+
+class Door_controller:
+
+    def __init__(self):
+        self.status = False
+
+    def set_door(self, status):
+        """
+        Control the door to be opened or closed at the entrance. No physical output.
+        :param status: 0 - False, 1 - True
+        :return: True if successfully set, otherwise False
+        :exception: open the gate when it is opened,
+                    or closed the door when it is close
+        """
+        if status == False:
+            print("Door is closed")
+        elif status == True:
+            print("Door is opened")
         pass
 
 
@@ -58,12 +97,27 @@ class heater_controller:
     def __init__(self):
         self.valve_opening = 0
 
-    def set_valve(self, opening):
-        self.valve_opening = opening
+    def set_valve(self, status):
+        """
+        Control the heater valve to be opened or closed. No physical output.
+        :param status: 0 - False, 1 - True
+        :return: True if successfully set, otherwise False
+        :exception: open the gate when it is opened,
+                    or closed the door when it is close
+        """
+        if status == False:
+            print("Valve is closed")
+        elif status == True:
+            print("Valve is opened")
+        pass
 
 
 @gin.configurable
 class buzzer_controller:
+    """
+    To-Do:
+        Define function and path to play buzzer sound
+    """
     def __init__(self, *sounds_path):
         pass
 
