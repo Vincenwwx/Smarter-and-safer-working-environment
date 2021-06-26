@@ -3,6 +3,8 @@ import RPi.GPIO as GPIO
 import os
 import glob
 import time
+import board    #for DHT
+import adafruit_dht   #for DHT #required CircuitPython lib installation
 
 False = 0
 True = 1
@@ -18,33 +20,32 @@ def config_sensors():   # Required in initialization
     device_folder = glob.glob(base_dir + '28*')[0]
     device_file = device_folder + '/w1_slave'
 
-
-    GPIO.setup(DHT_data, GPIO.IN)
+    dhtDevice = adafruit_dht.DHT11(dhtpin)
     GPIO.setup(Light_data, GPIO.IN)
     GPIO.setup(IR1, GPIO.IN)
     GPIO.setup(IR2, GPIO.IN)
     GPIO.setup(IR3, GPIO.IN)
-    GPIO.setup(Temperature_data, GPIO.IN)
+    GPIO.setup(Temperature_data, GPIO.IN)   # Need to config 1-wire interface to use
     pass
 
 def read_temp_raw():    # Read raw temperature. For use in get_body_temperature()
-    fdir = open(device_file, 'r')
-    rawlines = fdir.readlines()
-    fdir.close()
-    return rawlines
+    f = open(device_file, 'r')
+    lines = f.readlines()
+    f.close()
+    return lines
 
 def get_body_temperature():
     """
     Get body temperature by using normal temperature sensor
     :return: temperature    temperature of body
     """
-    rawlines = read_temp_raw()
-    while rawlines[0].strip()[-3:] != 'YES':
+    lines = read_temp_raw()
+    while lines[0].strip()[-3:] != 'YES':
         time.sleep(0.2)
-        rawlines = read_temp_raw()
-    equals_pos = rawlines[1].find('t=')
+        lines = read_temp_raw()
+    equals_pos = lines[1].find('t=')
     if equals_pos != -1:
-        temp_string = rawlines[1][equals_pos+2:]
+        temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
         return temp_c
 
@@ -54,16 +55,28 @@ def get_environment_temperature_and_humidity():
     Get environment temperature and humidity by using DHT sensor
     :return: [temperature, humidity]
     """
-    pass
+    while True:
+        try:
+            # Print the values to the serial port
+            temperature_c = dhtDevice.temperature
+            humidity = dhtDevice.humidity
+            print(
+                "Temp: {:.1f} C    Humidity: {}% ".format(
+                    temperature_c, humidity
+                )
+            )
+            return temperature_c, humidity
 
+        except RuntimeError as error:
+            # Errors happen fairly often, DHT's are hard to read, just keep going
+            print(error.args[0])
+            time.sleep(2.0)
+            continue
+        except Exception as error:
+            dhtDevice.exit()
+            raise error
 
-def get_weather_report(place):
-    """
-    Get local climate information from the weather report
-    :param place: the place where you want to gather climate information
-    :return: temperature of target place
-    :exception: if the place not exists
-    """
+        time.sleep(2.0)
     pass
 
 

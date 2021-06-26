@@ -50,7 +50,7 @@ class LEDs_controller:
             GPIO.output(yellow_addr,status)
             pass
 
-class Ventilator_controller:
+class ventilator_controller:
 
     def __init__(self, vent_address):
         self.vent_addr = vent_address
@@ -73,7 +73,7 @@ class Ventilator_controller:
             print("Door is opened")
         pass
 
-class Door_controller:
+class door_controller:
 
     def __init__(self):
         self.status = False

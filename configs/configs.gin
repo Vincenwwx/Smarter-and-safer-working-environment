@@ -8,7 +8,7 @@ ventilator_controller.__init__.vent_address = 18
 buzzer_controller.__init__.sounds_path =
 
 # Sensors
-DHT_data = 11
+dhtpin = board.D17  #Pin 11
 Light_data = 13
 IR1 = 15
 IR2 = 19
