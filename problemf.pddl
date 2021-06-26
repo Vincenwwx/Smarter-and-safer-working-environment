@@ -15,6 +15,7 @@
     (off2 f1)
     (at-fan f1 r1)
     
+    ;temporarily return values for sensor but actually the sensor values must be fed from mqtt subscriber 
     
     ;temperature
     (= (temp_limit) 22)
