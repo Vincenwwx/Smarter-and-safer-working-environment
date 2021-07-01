@@ -14,11 +14,15 @@ def main():
     myLEDController = LEDs_controller()
     myLEDController.config_led()
 
+    myLEDController.set_led("green", False)
+    myLEDController.set_led("red", False)
+    myLEDController.set_led("yellow", False)
+
     mySensorReader = SensorReader()
     mySensorReader.setupW1()
 
     abc = mySensorReader.get_body_temperature()
-    print(abc)
+    print("Body Temperature is " + str(abc))
 
     mySensorReader.get_environment_temperature_and_humidity()
 

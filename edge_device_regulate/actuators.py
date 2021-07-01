@@ -37,12 +37,15 @@ class LEDs_controller:
             raise ValueError("Please check the LED you want to control")
         if name == "green":
             GPIO.output(self.green_addr,status)
+            print("Set green LED " + str(status))
             pass
         elif name == "red":
             GPIO.output(self.red_addr,status)
+            print("Set red LED " + str(status))
             pass
         elif name == "yellow":
             GPIO.output(self.yellow_addr,status)
+            print("Set yellow LED " + str(status))
             pass
 
 @gin.configurable
@@ -55,7 +58,7 @@ class ventilator_controller:
     def config_ventilator(): # Config pins as output. Required in initialization
         GPIO.setup(vent_addr, GPIO.OUT) #Relay control pin
 
-    def set_door(self, status):
+    def set_ventilator(self, status):
         """
         Control the door to be opened or closed at the entrance. No physical output.
         :param status: 0 - False, 1 - True
