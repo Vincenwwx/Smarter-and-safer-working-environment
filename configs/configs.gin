@@ -1,15 +1,15 @@
 # Actuators
-LEDs_controller.red_address = 14
-LEDs_controller.green_address = 15
-LEDs_controller.yellow_address = 23
+LEDs_controller.red_address = 14    #Pin 8 Board
+LEDs_controller.green_address = 15  #Pin 10 Board
+LEDs_controller.yellow_address = 23 #Pin 16 Board
 
-ventilator_controller.vent_address = 18
+ventilator_controller.vent_address = 24 #Pin 18 Board
 
 buzzer_controller.sounds_path = "Something"
 
 # Sensors
 SensorReader.dhtPin = "board.D17"  #Pin 11
-SensorReader.Light_data = 13
-SensorReader.IR1 = 15
-SensorReader.IR2 = 19
-SensorReader.IR3 = 21
+SensorReader.Light_data = 27 #Pin 13 Board
+SensorReader.IR1 = 22 #Pin 15 Board
+SensorReader.IR2 = 10 #Pin 19 Board
+SensorReader.IR3 = 9 # Pin 21 Board
