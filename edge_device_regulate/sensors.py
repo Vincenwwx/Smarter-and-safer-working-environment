@@ -9,7 +9,12 @@ import adafruit_dht   #for DHT #required CircuitPython lib installation
 @gin.configurable
 class SensorReader:
     def __init__(self, Light_data, IR1, IR2, IR3, dhtPin):
+        self.Light_data = Light_data
+        self.IR1 = IR1
+        self.IR2 = IR2
+        self.IR3 = IR3
         self.dhtDevice = adafruit_dht.DHT11(eval(dhtPin))
+        
 
         GPIO.setup(Light_data, GPIO.IN)
         GPIO.setup(IR1, GPIO.IN)
@@ -77,28 +82,44 @@ class SensorReader:
         pass
 
 
-    def get_environment_brightness():
+    def get_environment_brightness(self):
         """
         Get environment brightness by using LDR sensor
         :return: 1:dark  0:bright      brightness of the environment
         """
-        return GPIO.input(Light_data)
+        if (GPIO.input(self.Light_data)==1):
+            print("Brightness is dark")
+        elif (GPIO.input(self.Light_data)==0):
+            print("Brightness is bright")
+        return GPIO.input(self.Light_data)
         pass
 
 
-    def detect_movement_entrance():
+    def detect_movement_entrance(self):
         """
         Detect object movement at the gate entrace by using IR sensor
         :return: 1:has object  0:no object
         """
-        return GPIO.input(IR1)
+        if (GPIO.input(self.IR1)==1):
+            print("Detected object at the entrance")
+        elif (GPIO.input(self.IR1)==0):
+            print("Not detected object at the entrance")
+        return GPIO.input(self.IR1)
         pass
 
 
-    def detect_movement_office():
+    def detect_movement_office(self):
         """
         Detect object movement inside the office by using IR sensor
         :return: 1:has object  0:no object
         """
-        return GPIO.input(IR2), GPIO.input(IR3)
+        myDetection = 1
+        if (GPIO.input(self.IR2)==1) or (GPIO.input(self.IR3)==1) :
+            print("Detected object in the office")
+            myDetection = 1
+        else:
+            print("Not detected object at the entrance")
+            myDetection = 0
+        return myDetection  
+        #return GPIO.input(IR2), GPIO.input(IR3)
         pass

@@ -55,21 +55,17 @@ class ventilator_controller:
         self.vent_addr = vent_address
         self.status = False
     
-    def config_ventilator(): # Config pins as output. Required in initialization
-        GPIO.setup(vent_addr, GPIO.OUT) #Relay control pin
+    def config_ventilator(self): # Config pins as output. Required in initialization
+        GPIO.setup(self.vent_addr, GPIO.OUT) #Relay control pin
 
     def set_ventilator(self, status):
         """
-        Control the door to be opened or closed at the entrance. No physical output.
+        Control the ventilator to be opened or closed at the entrance. No physical output.
         :param status: 0 - False, 1 - True
         :return: True if successfully set, otherwise False
-        :exception: open the gate when it is opened,
-                    or closed the door when it is close
         """
-        if status == False:
-            print("Door is closed")
-        elif status == True:
-            print("Door is opened")
+        GPIO.output(self.vent_addr,status)
+        print("Set ventilator " + str(status))
         pass
 
 class door_controller:
