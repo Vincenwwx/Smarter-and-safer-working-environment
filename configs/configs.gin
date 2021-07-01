@@ -7,7 +7,7 @@ ventilator_controller.vent_address = 24 #Pin 18 Board
 
 buzzer_controller.sounds_path = "Something"
 
-# Sensors
+# SensorReader
 SensorReader.dhtPin = "board.D17"  #Pin 11
 SensorReader.Light_data = 27 #Pin 13 Board
 SensorReader.IR1 = 22 #Pin 15 Board
