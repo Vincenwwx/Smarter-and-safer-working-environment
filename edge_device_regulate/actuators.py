@@ -1,11 +1,6 @@
 import gin
 import RPi.GPIO as GPIO
 
-False = 0
-True = 1
-
-GPIO.setmode(GPIO.BOARD)
-
 @gin.configurable
 class LEDs_controller:
     """
@@ -18,15 +13,15 @@ class LEDs_controller:
         self.red_addr = red_address
         self.green_addr = green_address
         self.yellow_addr = yellow_address
-        self.red_status = CLOSED
-        self.green_status = CLOSED
-        self.yellow_status = CLOSED
+        self.red_status = 0
+        self.green_status = 0
+        self.yellow_status = 0
 
     
-    def config_led(): # Config pins as output. Required in initialization
-        GPIO.setup(red_addr, GPIO.OUT)
-        GPIO.setup(green_addr, GPIO.OUT)
-        GPIO.setup(yellow_addr, GPIO.OUT)
+    def config_led(self): # Config pins as output. Required in initialization
+        GPIO.setup(self.red_addr, GPIO.OUT)
+        GPIO.setup(self.green_addr, GPIO.OUT)
+        GPIO.setup(self.yellow_addr, GPIO.OUT)
 
 
     def set_led(self, name, status):
@@ -41,15 +36,16 @@ class LEDs_controller:
         if name not in ["green", "red", "yellow"]:
             raise ValueError("Please check the LED you want to control")
         if name == "green":
-            GPIO.output(green_addr,status)
+            GPIO.output(self.green_addr,status)
             pass
         elif name == "red":
-            GPIO.output(red_addr,status)
+            GPIO.output(self.red_addr,status)
             pass
         elif name == "yellow":
-            GPIO.output(yellow_addr,status)
+            GPIO.output(self.yellow_addr,status)
             pass
 
+@gin.configurable
 class ventilator_controller:
 
     def __init__(self, vent_address):
@@ -118,7 +114,7 @@ class buzzer_controller:
     To-Do:
         Define function and path to play buzzer sound
     """
-    def __init__(self, *sounds_path):
+    def __init__(self, sounds_path):
         pass
 
     def display_sound(self, sound_name):
