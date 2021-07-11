@@ -1,2 +1,4 @@
 paho-mqtt
+playsound
+PyObjC
 gin

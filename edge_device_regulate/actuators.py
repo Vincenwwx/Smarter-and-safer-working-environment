@@ -1,4 +1,6 @@
 import gin
+from playsound import playsound
+import pathlib
 
 CLOSED = 0
 OPEN = 1
@@ -7,7 +9,7 @@ OPEN = 1
 @gin.configurable
 class LEDs_controller:
     """
-    To-Do:
+    Todo:
         Define the GPIO in configs/configs.gin
     """
 
@@ -63,9 +65,25 @@ class heater_controller:
 
 
 @gin.configurable
-class buzzer_controller:
-    def __init__(self, *sounds_path):
-        pass
+class Buzzer_controller:
 
-    def display_sound(self, sound_name):
-        pass
+    def __init__(self):
+        """
+        hard-code the path of sounds:
+            1. sound track: "body_temperature checking"
+            2. sound track: "come in please"
+            3. sound track: "Sorry, please try again
+        """
+        self.sound_path = {
+            "body_temp_check" : pathlib.Path(__file__).parent.resolve().joinpath("sounds", "body_temp_checking.mp3").as_uri(),
+            "come_in_please": pathlib.Path(__file__).parent.resolve().joinpath("sounds", "come_in_pls.mp3").as_uri(),
+            "sorry_pls_try": pathlib.Path(__file__).parent.resolve().joinpath("sounds", "sorry_pls_try_again.mp3").as_uri()
+        }
+
+    def play_sound(self, sound_name):
+        """
+        play sound of choice
+        :param sound_name: String
+        :return: None
+        """
+        playsound(self.sound_path[sound_name])

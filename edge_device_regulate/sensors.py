@@ -1,3 +1,6 @@
+from random import uniform
+
+
 def get_body_temperature():
     """
     Get body temperature by using normal temperature sensor
@@ -11,7 +14,7 @@ def get_environment_temperature_and_humidity():
     Get environment temperature and humidity by using DHT sensor
     :return: [temperature, humidity]
     """
-    pass
+    return [uniform(24, 26), uniform(20, 30)]
 
 
 def get_weather_report(place):
@@ -29,7 +32,7 @@ def get_environment_lightness():
     Get environment lightness by using LDR sensor
     :return: lightness      lightness of the environment
     """
-    pass
+    return uniform(30, 40)
 
 
 def detect_movement():
@@ -37,5 +40,5 @@ def detect_movement():
     Detect object movement by using IR sensor
     :return: False/True
     """
-    pass
+    return True
 
