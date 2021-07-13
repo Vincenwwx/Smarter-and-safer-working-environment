@@ -31,8 +31,8 @@
     
 
     ;light intensity
-    (= (lightintensity_limit) 8000)
-    (= (lightintensity r) 7000.0)
+    (= (lightintensity_limit) 1)
+    (= (lightintensity r) 2)
    
    
 

@@ -6,4 +6,5 @@ def updata_problem(place, key, value):
         if place == "entrance" else "comfortProblem.pddl"
     problem_file = pathlib.Path(__file__).parent.joinpath(file_name)
     with open(problem_file, 'w') as f:
+        pass
 

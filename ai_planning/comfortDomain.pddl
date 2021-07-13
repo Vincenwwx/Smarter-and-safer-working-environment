@@ -34,13 +34,13 @@
    
    (:action switchoff_light
         :parameters (?l - light ?r - room ?m - message)
-        :precondition (and (off ?l) (>(lightintensity ?r) (lightintensity_limit)))
+        :precondition (and (off ?l) (<(lightintensity ?r) (lightintensity_limit)))
         :effect (and (not(off ?l)) (send ?m) (brightness-sufficient))
     )
 
     (:action switchon_light
         :parameters (?l - light ?r - room ?m - message)
-        :precondition (or (not(off ?l)) (<(lightintensity ?r) (lightintensity_limit)))
+        :precondition (or (not(off ?l)) (>=(lightintensity ?r) (lightintensity_limit)))
         :effect (and (off ?l) (send ?m) (brightness-sufficient))
     )
    

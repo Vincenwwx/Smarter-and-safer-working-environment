@@ -1,5 +1,4 @@
 import pathlib
-
 import RPi.GPIO as GPIO
 import os
 import glob
@@ -14,13 +13,14 @@ config.read(pathlib.Path(__file__).parents[1].joinpath("config.ini"))
 
 class SensorReader:
     def __init__(self):
-        self.LDR = config["Sensors"]["LDR_pin"]
-        self.IR1 = config["Sensors"]["IR1_pin"]     # For entrance
-        self.IR2 = config["Sensors"]["IR1_pin"]     # For office
-        self.IR3 = config["Sensors"]["IR3_pin"]     # For office
-        self.dhtDevice = adafruit_dht.DHT11(eval(config["Sensors"]["DHT_pin"]))
+        self.LDR = int(config["Sensors"]["LDR_pin"])
+        self.IR1 = int(config["Sensors"]["IR1_pin"])     # For entrance
+        self.IR2 = int(config["Sensors"]["IR1_pin"])     # For office
+        self.IR3 = int(config["Sensors"]["IR3_pin"])     # For office
+        DHT = int(config["Sensors"]["DHT_pin"])
+        self.dhtDevice = adafruit_dht.DHT11(eval(DHT))
 
-        GPIO.setup(self.Light_data, GPIO.IN)
+        GPIO.setup(self.LDR, GPIO.IN)
         GPIO.setup(self.IR1, GPIO.IN)
         GPIO.setup(self.IR2, GPIO.IN)
         GPIO.setup(self.IR3, GPIO.IN)
