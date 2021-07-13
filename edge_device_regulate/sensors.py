@@ -17,7 +17,7 @@ class SensorReader:
         self.IR1 = int(config["Sensors"]["IR1_pin"])     # For entrance
         self.IR2 = int(config["Sensors"]["IR1_pin"])     # For office
         self.IR3 = int(config["Sensors"]["IR3_pin"])     # For office
-        DHT = int(config["Sensors"]["DHT_pin"])
+        DHT = config["Sensors"]["DHT_pin"]
         self.dhtDevice = adafruit_dht.DHT11(eval(DHT))
 
         GPIO.setup(self.LDR, GPIO.IN)
