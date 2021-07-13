@@ -1,0 +1,10 @@
+;;!domain: office
+;;!problem: comfortness
+
+0.00100: (switchon_buzzer1 b1 p m)
+0.00200: (switchon_buzzer b p m)
+0.00300: (switchon_heater h r m)
+0.00400: (switchon_light l r m)
+
+; Makespan: 0.004
+; Metric: 0.004
