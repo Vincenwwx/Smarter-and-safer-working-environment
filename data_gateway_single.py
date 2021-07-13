@@ -6,8 +6,7 @@ import time, threading
 import multiprocessing as mp
 import configparser
 import json
-from edge_device_regulate.sensors import get_environment_temperature_and_humidity, \
-    get_environment_lightness, detect_movement, get_body_temperature
+from edge_device_regulate.sensors import SensorReader
 
 
 """
@@ -34,6 +33,7 @@ topic_sub = config["MQTT"]["topic_plan"]
 # task queue to overcome issue with paho when using multiple threads:
 #   https://github.com/eclipse/paho.mqtt.python/issues/354
 task_queue = mp.Queue()
+sensor_reader = SensorReader()
 
 
 # ------------------- Callback functions ----------------------
@@ -54,8 +54,8 @@ def on_publish(client, userdata, mid):
 # Send measurement
 def send_env_measurement():
     print("Sending #environment# measurement...")
-    temperature, humidity = get_environment_temperature_and_humidity()
-    lightness = get_environment_lightness()
+    temperature, humidity = sensor_reader.get_environment_temperature_and_humidity()
+    lightness = sensor_reader.get_environment_lightness()
     measurement = json.dumps({
         "temperature": temperature,
         "humidity": humidity,
@@ -66,8 +66,8 @@ def send_env_measurement():
 
 def send_entrance_measurement():
     print("Sending #entrance# measurement...")
-    people_detected = detect_movement()
-    body_temperature = get_body_temperature()
+    people_detected = sensor_reader.detect_movement_entrance()
+    body_temperature = sensor_reader.get_body_temperature()
     measurement = json.dumps({
         "people_detected": people_detected,
         "body_temperature": body_temperature
