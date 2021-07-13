@@ -1,4 +1,0 @@
-(switchon_buzzer1 b1 p1 m1)
-(switchon_buzzer2 b2 p2 m1)
-(switchon_light l1 r1 m1)
-(switchon_fan f1 r1 m1)
