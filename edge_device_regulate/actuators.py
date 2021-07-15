@@ -13,9 +13,9 @@ class LEDs_controller:
         # self.red_addr = config["Actuators"]["LED_red_pin"]
         # self.green_addr = config["Actuators"]["LED_green_pin"]
         # self.yellow_addr = config["Actuators"]["LED_yellow_pin"]
-        self.red_addr = red_address
-        self.green_addr = green_address
-        self.yellow_addr = yellow_address
+        self.red_addr = int(red_address)
+        self.green_addr = int(green_address)
+        self.yellow_addr = int(yellow_address)
 
         self.red_status = 0
         self.green_status = 0
@@ -50,7 +50,7 @@ class LEDs_controller:
 
 class Ventilator_controller:
     def __init__(self, ventilator_pin):
-        self.vent_addr = ventilator_pin
+        self.vent_addr = int(ventilator_pin)
         self.status = 0
         GPIO.setup(self.vent_addr, GPIO.OUT)
 
