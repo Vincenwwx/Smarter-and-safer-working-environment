@@ -16,8 +16,8 @@
     (at-buzzer1 b1 p)
     
     ; body temperature
-    (= (bodytemp_limit) 37)
-    (= (bodytemp p) 22.062)
+    (= (bodytemp_limit) 15)
+    (= (bodytemp p) 23.437)
 
     ;motion
     (= (motion_value) 1)

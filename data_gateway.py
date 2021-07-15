@@ -54,22 +54,40 @@ def on_new_plan(client, userdata, message):
     payload = message.payload.decode("utf-8")
     # print(" < received plan " + payload)
 
+    # Office
     if "switchon_heater" in payload:
         heater_control.set_valve(1)
+
     elif "switchoff_heater" in payload:
         heater_control.set_valve(0)
+
     elif "switchon_light" in payload:
         leds_control.set_led("yellow", 1)
+
     elif "switchoff_light" in payload:
         leds_control.set_led("yellow", 0)
+
     elif "switchon_fan" in payload:
         ventilator_control.set_ventilator(1)
+
     elif "switchoff_fan" in payload:
         ventilator_control.set_ventilator(0)
+
     elif "switchon_heater" in payload:
         heater_control.set_valve(1)
+
     elif "switchoff_heater" in payload:
         heater_control.set_valve(0)
+
+    # Entrance
+    elif "allow" in payload:
+        buzzer_control.play_sound("come_in_please")
+        leds_control.blink("green")
+        door_control.set_door(1)
+    elif "deny" in payload:
+        buzzer_control.play_sound("sorry_pls_try")
+        leds_control.blink("red")
+
     else:
         print("Unrecognized plan, please check!")
         raise
@@ -110,11 +128,11 @@ def send_entrance_measurement():
 
     if people_detected:
         buzzer_control.play_sound("body_temp_check")
-        time.sleep(1)
-        if body_temperature < 37:
-            buzzer_control.play_sound("come_in_please")
-        else:
-            buzzer_control.play_sound("sorry_pls_try")
+        time.sleep(0.5)
+        # if body_temperature < 37:
+        #     buzzer_control.play_sound("come_in_please")
+        # else:
+        #     buzzer_control.play_sound("sorry_pls_try")
 
 
 # publish a message

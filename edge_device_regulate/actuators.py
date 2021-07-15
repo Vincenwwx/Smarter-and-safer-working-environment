@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import pathlib
 import os
+import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -36,13 +37,15 @@ class LEDs_controller:
             raise ValueError("Please check the LED you want to control")
         if name == "green":
             GPIO.output(self.green_addr, status)
-            print("Set green LED " + str(status))
         elif name == "red":
             GPIO.output(self.red_addr, status)
-            print("Set red LED " + str(status))
         elif name == "yellow":
             GPIO.output(self.yellow_addr, status)
-            print("Set yellow LED " + str(status))
+
+    def blink(self, name, delay=2):
+        self.set_led(name, 1)
+        time.sleep(delay)
+        self.set_led(name, 0)
 
     def off(self):
         GPIO.output(self.yellow_addr, 0)
@@ -125,7 +128,7 @@ class Buzzer_controller:
     def play_sound(self, sound_name):
         """
         play sound of choice
-        :param sound_name: String
+        :param sound_name: str, "body_temp_check", "come_in_please" or "sorry_pls_try"
         :return: None
         """
         os.system("omxplayer "+str(self.sound_path[sound_name]) + " >/dev/null 2>&1")
