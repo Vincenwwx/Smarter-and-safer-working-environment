@@ -11,7 +11,7 @@ def update_problem(place, data):
     :return: None
     """
     if place == "environment":
-        file_name = "comfortProblem.pddl"
+        file_name = str(pathlib.Path(__file__).parent.joinpath("comfortProblem.pddl"))
         with open(file_name, "r") as f:
             content = f.read()
             new_content = re.sub(r'temp r\) [0-9]+\.[0-9]+',
@@ -26,7 +26,7 @@ def update_problem(place, data):
             f.close()
 
     else:
-        file_name = "safetyProblem.pddl"
+        file_name = str(pathlib.Path(__file__).parent.joinpath("safetyProblem.pddl"))
         with open(file_name, "r") as f:
             content = f.read()
             new_content = re.sub(r'bodytemp p\) [0-9]+\.[0-9]+',

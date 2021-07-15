@@ -56,6 +56,7 @@ class SensorReader:
         if equals_pos != -1:
             temp_string = lines[1][equals_pos + 2:]
             temp_c = float(temp_string) / 1000.0
+            print("\t [Temperature sensor] Body temperature: " + temp_c + " C")
             return temp_c
 
     def get_environment_temperature_and_humidity(self):
@@ -68,8 +69,9 @@ class SensorReader:
                 # Print the values to the serial port
                 temperature = self.dhtDevice.temperature
                 humidity = self.dhtDevice.humidity
-                print("Office temperature: " + str(temperature))
-                print("Office humidity: " + str(humidity))
+                print("\t [DHT sensor]")
+                print("\t\t Office temperature: " + str(temperature))
+                print("\t\t Office humidity: " + str(humidity))
                 return temperature, humidity
 
             except RuntimeError as error:
@@ -89,10 +91,10 @@ class SensorReader:
                     0: bright      brightness of the environment
         """
         if GPIO.input(self.LDR):
-            print("Brightness is dark")
+            print("\t [LDR sensor] Brightness: dark")
             return 1
         else:
-            print("Brightness is bright")
+            print("\t [LDR sensor] Brightness: bright")
             return 0
 
     def detect_movement_entrance(self):
@@ -102,10 +104,10 @@ class SensorReader:
                     0: no object
         """
         if GPIO.input(self.IR1):
-            print("Detected object at the entrance")
+            print("\t [IR sensor] Detected object at the entrance")
             return 1
         else:
-            print("Not detected object at the entrance")
+            print("\t [IR sensor] Not detected object at the entrance")
             return 0
 
     def detect_movement_office(self):
@@ -114,8 +116,8 @@ class SensorReader:
         :return: 1:has object  0:no object
         """
         if GPIO.input(self.IR2) or GPIO.input(self.IR3):
-            print("Detected object in the office")
+            print("\t [IR sensor] Detected object in the office")
             return 1
         else:
-            print("Not detected object at the entrance")
+            print("\t [IR sensor] Not detected object at the entrance")
             return 0

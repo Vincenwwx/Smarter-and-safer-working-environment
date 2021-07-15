@@ -82,9 +82,9 @@ def on_publish(client, userdata, mid):
 # ------------------- Functions to publish data ----------------------
 # Send measurement
 def send_env_measurement():
-    print("Sending #environment# measurement...")
+    print("Sending $ ENVIRONMENT $ measurement...")
     temperature, humidity = sensor_reader.get_environment_temperature_and_humidity()
-    lightness = sensor_reader.get_environment_lightness()
+    lightness = sensor_reader.get_environment_brightness()
     measurement = json.dumps({
         "temperature": temperature,
         "humidity": humidity,
@@ -94,7 +94,7 @@ def send_env_measurement():
 
 
 def send_entrance_measurement():
-    print("Sending #entrance# measurement...")
+    print("Sending # ENTRANCE # measurement...")
     people_detected = sensor_reader.detect_movement_entrance()
     body_temperature = sensor_reader.get_body_temperature()
     measurement = json.dumps({
