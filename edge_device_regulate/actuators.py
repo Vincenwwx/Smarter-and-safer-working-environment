@@ -1,11 +1,6 @@
 from playsound import playsound
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 import pathlib
-import configparser
-
-
-config = configparser.ConfigParser
-config.read(pathlib.Path(__file__).parents[1].joinpath("config.ini"))
 
 
 class LEDs_controller:
@@ -15,9 +10,13 @@ class LEDs_controller:
     """
 
     def __init__(self, red_address, green_address, yellow_address):
-        self.red_addr = config["Actuators"]["LED_red_pin"]
-        self.green_addr = config["Actuators"]["LED_green_pin"]
-        self.yellow_addr = config["Actuators"]["LED_yellow_pin"]
+        # self.red_addr = config["Actuators"]["LED_red_pin"]
+        # self.green_addr = config["Actuators"]["LED_green_pin"]
+        # self.yellow_addr = config["Actuators"]["LED_yellow_pin"]
+        self.red_addr = red_address
+        self.green_addr = green_address
+        self.yellow_addr = yellow_address
+
         self.red_status = 0
         self.green_status = 0
         self.yellow_status = 0
@@ -50,8 +49,8 @@ class LEDs_controller:
 
 
 class Ventilator_controller:
-    def __init__(self):
-        self.vent_addr = config["Actuators"]["ventilator_pin"]
+    def __init__(self, ventilator_pin):
+        self.vent_addr = ventilator_pin
         self.status = 0
         GPIO.setup(self.vent_addr, GPIO.OUT)
 
