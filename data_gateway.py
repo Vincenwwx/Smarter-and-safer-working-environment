@@ -109,12 +109,12 @@ def send_entrance_measurement():
     publish(topic_pub_entrance, measurement)
 
     if people_detected:
-        buzzer_control.play_sound("body_temp_checking")
+        buzzer_control.play_sound("body_temp_check")
         time.sleep(1)
         if body_temperature < 37:
-            buzzer_control.play_sound("come_in_pls")
+            buzzer_control.play_sound("come_in_please")
         else:
-            buzzer_control.play_sound("sorry_pls_try_again")
+            buzzer_control.play_sound("sorry_pls_try")
 
 
 # publish a message
