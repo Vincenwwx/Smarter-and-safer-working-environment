@@ -53,6 +53,7 @@ def on_entrance_message(client, userdata, message):
     # Get plans and publish
     plans = get_plans("entrance")
     for act in plans:
+        print(str(act["name"]))
         client.publish(topic_pub, str(act["name"]))
 
 

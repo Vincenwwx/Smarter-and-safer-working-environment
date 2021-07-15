@@ -17,11 +17,11 @@
     
     ; body temperature
     (= (bodytemp_limit) 22)
-    (= (bodytemp p) 27.562)
+    (= (bodytemp p) 27.25)
 
     ;motion
     (= (motion_value) 1)
-    (= (motion p) 0)
+    (= (motion p) 1)
 
 )
 (:goal

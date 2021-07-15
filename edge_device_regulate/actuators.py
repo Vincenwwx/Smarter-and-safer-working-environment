@@ -44,6 +44,11 @@ class LEDs_controller:
             GPIO.output(self.yellow_addr, status)
             print("Set yellow LED " + str(status))
 
+    def off(self):
+        GPIO.output(self.yellow_addr, 0)
+        GPIO.output(self.red_addr, 0)
+        GPIO.output(self.green_addr, 0)
+
 
 class Ventilator_controller:
     def __init__(self, ventilator_pin):
@@ -62,6 +67,9 @@ class Ventilator_controller:
         elif status == 1:
             print("[Actuator] Ventilator is opened")
         GPIO.output(self.vent_addr, status)
+
+    def stop(self):
+        GPIO.output(self.vent_addr, 0)
 
 
 class Door_controller:

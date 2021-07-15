@@ -56,7 +56,7 @@ class SensorReader:
         if equals_pos != -1:
             temp_string = lines[1][equals_pos + 2:]
             temp_c = float(temp_string) / 1000.0
-            print("\t [Temperature sensor] Body temperature: " + temp_c + " C")
+            print("\t [Temperature sensor] Body temperature: " + str(temp_c) + " C")
             return temp_c
 
     def get_environment_temperature_and_humidity(self):

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import paho.mqtt.client as mqtt
-import time, threading
+import time
+import threading
 import multiprocessing as mp
 import configparser
 import json
@@ -90,6 +91,8 @@ def send_env_measurement():
         "humidity": humidity,
         "lightness": lightness
     })
+    print("============================================")
+    print("")
     publish(topic_pub_environment, measurement)
 
 
@@ -101,6 +104,8 @@ def send_entrance_measurement():
         "people_detected": people_detected,
         "body_temperature": body_temperature
     })
+    print("============================================")
+    print("")
     publish(topic_pub_entrance, measurement)
 
 
@@ -166,5 +171,8 @@ try:
         task = task_queue.get()
         task()
 except (KeyboardInterrupt, SystemExit):
+    leds_control.off()
+    ventilator_control.stop()
+
     print("Received keyboard interrupt, quitting ...")
     exit(0)
