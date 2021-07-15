@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 import pathlib
-import pygame
+import os
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
 
 class LEDs_controller:
@@ -54,16 +57,11 @@ class Ventilator_controller:
         :param status: 0 - OFF, 1 - ON
         :return: True if successfully set, otherwise False
         """
-        if status == 0 and self.status == 1:
-            GPIO.output(self.vent_addr, status)
+        if status == 0:
             print("[Actuator] Ventilator is closed")
-            return True
-        elif status == 1 and self.status == 0:
-            GPIO.output(self.vent_addr, status)
+        elif status == 1:
             print("[Actuator] Ventilator is opened")
-            return True
-        else:
-            return False
+        GPIO.output(self.vent_addr, status)
 
 
 class Door_controller:
@@ -110,11 +108,11 @@ class Buzzer_controller:
             3. sound track: "Sorry, please try again
         """
         self.sound_path = {
-            "body_temp_check" : pathlib.Path(__file__).parent.joinpath("sounds", "body_temp_checking.mp3"),
-            "come_in_please": pathlib.Path(__file__).parent.joinpath("sounds", "come_in_pls.mp3"),
-            "sorry_pls_try": pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3")
+            "body_temp_check" : str(pathlib.Path(__file__).parent.joinpath("sounds", "body_temp_checking.mp3")),
+            "come_in_please": str(pathlib.Path(__file__).parent.joinpath("sounds", "come_in_pls.mp3")),
+            "sorry_pls_try": str(pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3"))
         }
-        pygame.mixer.init()
+        assert os.path.exists(self.sound_path["sorry_pls_try"]) == True
 
     def play_sound(self, sound_name):
         """
@@ -122,5 +120,4 @@ class Buzzer_controller:
         :param sound_name: String
         :return: None
         """
-        pygame.mixer.music.load(self.sound_path[sound_name])
-        pygame.mixer.music.play()
+        os.system("omxplayer "+str(self.sound_path[sound_name]) + " >/dev/null 2>&1")
