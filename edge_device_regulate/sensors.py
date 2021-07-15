@@ -100,10 +100,12 @@ class SensorReader:
     def detect_movement_entrance(self):
         """
         Detect object movement at the gate entrance by using IR sensor
+        !!! Attention:
+            when object detected, the GPIO input will be 0, otherwise 1
         :return:    1: object detected
                     0: no object
         """
-        if GPIO.input(self.IR1):
+        if not GPIO.input(self.IR1):
             print("\t [IR sensor] Detected object at the entrance")
             return 1
         else:

@@ -91,7 +91,7 @@ def send_env_measurement():
         "humidity": humidity,
         "lightness": lightness
     })
-    print("============================================")
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     print("")
     publish(topic_pub_environment, measurement)
 
@@ -104,7 +104,7 @@ def send_entrance_measurement():
         "people_detected": people_detected,
         "body_temperature": body_temperature
     })
-    print("============================================")
+    print("====================================================")
     print("")
     publish(topic_pub_entrance, measurement)
 
