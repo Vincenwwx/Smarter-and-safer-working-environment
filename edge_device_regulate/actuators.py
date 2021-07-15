@@ -52,7 +52,7 @@ class LEDs_controller:
 class Ventilator_controller:
     def __init__(self):
         self.vent_addr = config["Actuators"]["ventilator_pin"]
-        self.status = False
+        self.status = 0
         GPIO.setup(self.vent_addr, GPIO.OUT)
 
     def set_ventilator(self, status):
@@ -94,7 +94,7 @@ class Door_controller:
             print("[Actuator] Door is closed")
 
 
-class heater_controller:
+class Heater_controller:
     def __init__(self):
         self.valve_opening = False
 

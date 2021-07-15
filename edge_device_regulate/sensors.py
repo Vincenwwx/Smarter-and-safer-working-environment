@@ -25,6 +25,8 @@ class SensorReader:
         GPIO.setup(self.IR2, GPIO.IN)
         GPIO.setup(self.IR3, GPIO.IN)
 
+        self.setupW1()
+
     def setupW1(self):
         os.system('modprobe w1-gpio')
         os.system('modprobe w1-therm')
@@ -63,20 +65,18 @@ class SensorReader:
         while True:
             try:
                 # Print the values to the serial port
-                temperature_c = self.dhtDevice.temperature
+                temperature = self.dhtDevice.temperature
                 humidity = self.dhtDevice.humidity
-                print(
-                    "Temp: {:.1f} C    Humidity: {}% ".format(
-                        temperature_c, humidity
-                    )
-                )
-                return temperature_c, humidity
+                print("Office temperature: " + temperature)
+                print("Office humidity: " + humidity)
+                return temperature, humidity
 
             except RuntimeError as error:
                 # Errors happen fairly often, DHT's are hard to read, just keep going
                 print(error.args[0])
                 time.sleep(2.0)
                 continue
+
             except Exception as error:
                 self.dhtDevice.exit()
                 raise error
@@ -96,13 +96,14 @@ class SensorReader:
 
     def detect_movement_entrance(self):
         """
-        Detect object movement at the gate entrace by using IR sensor
-        :return: 1:has object  0:no object
+        Detect object movement at the gate entrance by using IR sensor
+        :return:    1: object detected
+                    0: no object
         """
         if GPIO.input(self.IR1):
             print("Detected object at the entrance")
             return 1
-        elif GPIO.input(self.IR1):
+        else:
             print("Not detected object at the entrance")
             return 0
 
