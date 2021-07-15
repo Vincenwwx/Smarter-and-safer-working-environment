@@ -19,6 +19,7 @@ class SensorReader:
         self.IR3 = int(config["Sensors"]["IR3_pin"])     # For office
         DHT = config["Sensors"]["DHT_pin"]
         self.dhtDevice = adafruit_dht.DHT11(eval(DHT))
+        self.device_file = ""
 
         GPIO.setup(self.LDR, GPIO.IN)
         GPIO.setup(self.IR1, GPIO.IN)
@@ -67,8 +68,8 @@ class SensorReader:
                 # Print the values to the serial port
                 temperature = self.dhtDevice.temperature
                 humidity = self.dhtDevice.humidity
-                print("Office temperature: " + temperature)
-                print("Office humidity: " + humidity)
+                print("Office temperature: " + str(temperature))
+                print("Office humidity: " + str(humidity))
                 return temperature, humidity
 
             except RuntimeError as error:

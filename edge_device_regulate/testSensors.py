@@ -1,9 +1,9 @@
-from edge_device_regulate.sensors import SensorReader
+from sensors import SensorReader
 
 sr = SensorReader()
 
 print("# ----- Test body temperature sensor -------")
-print(sr.get_body_temperature())
+print(str(sr.get_body_temperature()))
 
 print("# --- Test env temperature and humidity ----")
 sr.get_environment_temperature_and_humidity()

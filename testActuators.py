@@ -1,5 +1,4 @@
 import time
-import pathlib
 import configparser
 from edge_device_regulate.actuators import LEDs_controller, \
     Ventilator_controller, Buzzer_controller
