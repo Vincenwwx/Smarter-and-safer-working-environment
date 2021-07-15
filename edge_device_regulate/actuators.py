@@ -1,13 +1,9 @@
-from playsound import playsound
 import RPi.GPIO as GPIO
 import pathlib
+import pygame
 
 
 class LEDs_controller:
-    """
-    Todo:
-        Define the GPIO in configs/configs.gin
-    """
 
     def __init__(self, red_address, green_address, yellow_address):
         # self.red_addr = config["Actuators"]["LED_red_pin"]
@@ -29,11 +25,9 @@ class LEDs_controller:
     def set_led(self, name, status):
         """
         Set the LED status
-        :param   name:      name of the LED to set,
+        :param   name:      name of the LED to set ("green", "red" and "yellow")
         :param   status:    0 - OFF, 1 - ON
-        :return: boolean    True if successfully set, otherwise False
-        :exception:         turn on the LED when it is on,
-                            or turn off the LED when it is off
+        :return: None
         """
         if name not in ["green", "red", "yellow"]:
             raise ValueError("Please check the LED you want to control")
@@ -116,10 +110,11 @@ class Buzzer_controller:
             3. sound track: "Sorry, please try again
         """
         self.sound_path = {
-            "body_temp_check" : pathlib.Path(__file__).parent.joinpath("sounds", "body_temp_checking.mp3").as_uri(),
-            "come_in_please": pathlib.Path(__file__).parent.joinpath("sounds", "come_in_pls.mp3").as_uri(),
-            "sorry_pls_try": pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3").as_uri()
+            "body_temp_check" : pathlib.Path(__file__).parent.joinpath("sounds", "body_temp_checking.mp3"),
+            "come_in_please": pathlib.Path(__file__).parent.joinpath("sounds", "come_in_pls.mp3"),
+            "sorry_pls_try": pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3")
         }
+        pygame.mixer.init()
 
     def play_sound(self, sound_name):
         """
@@ -127,4 +122,5 @@ class Buzzer_controller:
         :param sound_name: String
         :return: None
         """
-        playsound(self.sound_path[sound_name])
+        pygame.mixer.music.load(self.sound_path[sound_name])
+        pygame.mixer.music.play()

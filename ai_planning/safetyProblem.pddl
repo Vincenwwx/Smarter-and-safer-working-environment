@@ -17,7 +17,7 @@
     
     ; body temperature
     (= (bodytemp_limit) 22)
-    (= (bodytemp p) 27.0)
+    (= (bodytemp p) 10.22)
 
     ;motion
     (= (motion_value) 1)

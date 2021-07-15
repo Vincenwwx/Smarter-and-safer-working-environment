@@ -3,8 +3,10 @@
 
 import paho.mqtt.client as mqtt
 from threading import Thread
+from ai_planning.handle_pddl import get_plans, update_problem
 import configparser
 import json
+
 
 """
 Decision maker is responsible for subscribing sensor data and then publish
@@ -25,22 +27,33 @@ topic_pub = config["MQTT"]["topic_plan"]
 
 
 # ------------------ Callback functions ----------------------
-# Todo: Implement AI planing
 # After receiving incoming messages (AI plans)
 def on_environment_message(client, userdata, message):
     payload = message.payload.decode("utf-8")
     print(" < {} received message: {}".format(client, payload))
 
+    # Todo: Update environment problem file
     payload = json.loads(payload)
+    update_problem("environment", payload)
 
-    client.publish(topic_pub, "Plan for environment")
+    # Get plans and publish
+    plans = get_plans("environment")
+    for act in plans:
+        client.publish(topic_pub, str(act["name"]))
 
 
 def on_entrance_message(client, userdata, message):
     payload = message.payload.decode("utf-8")
     print(" < {} received message: {}".format(client, payload))
 
+    # Todo: update entrance problem file
     payload = json.loads(payload)
+    update_problem("entrance", payload)
+
+    # Get plans and publish
+    plans = get_plans("entrance")
+    for act in plans:
+        client.publish(topic_pub, str(act["name"]))
 
 
 def on_entrance_connect(client, userdata, flags, rc):

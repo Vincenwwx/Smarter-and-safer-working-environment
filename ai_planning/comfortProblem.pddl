@@ -22,12 +22,11 @@
     
     ;temperature
     (= (temp_limit) 22)
-    (= (temp r) 21.0)
+    (= (temp r) 12.22)
     
     ;humidity
-    
     (= (humidity_limit) 60)
-    (= (humidity r) 55.0 )
+    (= (humidity r) 88.1)
     
 
     ;light intensity

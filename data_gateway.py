@@ -7,6 +7,8 @@ import multiprocessing as mp
 import configparser
 import json
 from edge_device_regulate.sensors import SensorReader
+from edge_device_regulate.actuators import LEDs_controller, Buzzer_controller, \
+    Ventilator_controller, Door_controller, Heater_controller
 
 
 """
@@ -35,14 +37,41 @@ topic_sub = config["MQTT"]["topic_plan"]
 task_queue = mp.Queue()
 sensor_reader = SensorReader()
 
+leds_control = LEDs_controller(red_address=config["Actuators"]["LED_red_pin"],
+                               green_address=config["Actuators"]["LED_green_pin"],
+                               yellow_address=config["Actuators"]["LED_yellow_pin"])
+ventilator_control = Ventilator_controller(
+    ventilator_pin=config["Actuators"]["ventilator_pin"])
+buzzer_control = Buzzer_controller()
+door_control = Door_controller()
+heater_control = Heater_controller()
+
 
 # ------------------- Callback functions ----------------------
 # After receiving incoming messages (AI plans)
-# Todo: Plan implementation on edge
 def on_new_plan(client, userdata, message):
     payload = message.payload.decode("utf-8")
-    print(" < received plan " + payload)
-    print("Actuators work.....")
+    # print(" < received plan " + payload)
+
+    if "switchon_heater" in payload:
+        heater_control.set_valve(1)
+    elif "switchoff_heater" in payload:
+        heater_control.set_valve(0)
+    elif "switchon_light" in payload:
+        leds_control.set_led("yellow", 1)
+    elif "switchoff_light" in payload:
+        leds_control.set_led("yellow", 0)
+    elif "switchon_fan" in payload:
+        ventilator_control.set_ventilator(1)
+    elif "switchoff_fan" in payload:
+        ventilator_control.set_ventilator(0)
+    elif "switchon_heater" in payload:
+        heater_control.set_valve(1)
+    elif "switchoff_heater" in payload:
+        heater_control.set_valve(0)
+    else:
+        print("Unrecognized plan, please check!")
+        raise
 
 
 # display all outgoing messages
@@ -129,8 +158,6 @@ device_loop_thread.start()
 device_loop_thread = threading.Thread(target=data_collect_thread, args=("entrance", 1,))
 device_loop_thread.daemon = True
 device_loop_thread.start()
-
-
 
 
 # process all tasks on queue
