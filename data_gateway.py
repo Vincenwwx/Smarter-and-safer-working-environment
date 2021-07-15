@@ -108,6 +108,14 @@ def send_entrance_measurement():
     print("")
     publish(topic_pub_entrance, measurement)
 
+    if people_detected:
+        buzzer_control.play_sound("body_temp_checking")
+        time.sleep(1)
+        if body_temperature < 37:
+            buzzer_control.play_sound("come_in_pls")
+        else:
+            buzzer_control.play_sound("sorry_pls_try_again")
+
 
 # publish a message
 def publish(topic, message, wait_for_ack=False):
@@ -160,7 +168,7 @@ device_loop_thread = threading.Thread(target=data_collect_thread, args=("environ
 device_loop_thread.daemon = True
 device_loop_thread.start()
 
-device_loop_thread = threading.Thread(target=data_collect_thread, args=("entrance", 1,))
+device_loop_thread = threading.Thread(target=data_collect_thread, args=("entrance", 3,))
 device_loop_thread.daemon = True
 device_loop_thread.start()
 
