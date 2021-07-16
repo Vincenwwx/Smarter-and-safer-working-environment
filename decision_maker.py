@@ -52,14 +52,10 @@ def on_entrance_message(client, userdata, message):
 
     # Get plans and publish
     plans = get_plans("entrance")
-    permission_point = 0
     for act in plans:
-        if "employee_entered" or "temp_allow" in act:
-            permission_point += 1
-    if permission_point == 2:
-        client.publish(topic_pub, "allow")
-    else:
-        client.publish(topic_pub, "deny")
+        if "entered" in act or "temp_allow" in act:
+            for act in plans:
+                print(str(act["name"]))
 
 
 def on_entrance_connect(client, userdata, flags, rc):
