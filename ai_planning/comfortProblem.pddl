@@ -23,11 +23,11 @@
     
     ;temperature Ventilator on
     (= (temp_limit) 23)
-    (= (temp r) 25.0)
+    (= (temp r) 26.0)
     
     ;temperature Ventilator off
     (= (temp1_limit) 18)
-    (= (temp r) 25.0)
+    (= (temp r) 26.0)
 
     ;humidity
     

@@ -2,7 +2,7 @@ import multiprocessing as mp
 import paho.mqtt.client as mqtt
 import time
 import json
-from edge_device_regulate.actuators import LEDs_controller, Buzzer_controller, \
+from actuators import LEDs_controller, Buzzer_controller, \
     Ventilator_controller, Door_controller
 
 
@@ -23,10 +23,12 @@ class Edge(mp.Process):
             self.task = self.send_entrance_measurement
             self.mqtt_pub = self.config["MQTT"]["topic_raw_data_entrance"]
             self.delay = 3
+
         elif place == "office":
             self.task = self.send_env_measurement
             self.mqtt_pub = self.config["MQTT"]["topic_raw_data_environment"]
             self.delay = 10
+
         elif place == "executor":
             """
             Actuators
@@ -38,6 +40,7 @@ class Edge(mp.Process):
                 ventilator_pin=self.config["Actuators"]["ventilator_pin"])
             self.buzzer_control = Buzzer_controller()
             self.door_control = Door_controller()
+
         else:
             print("Please specify a valid place. Exit...")
             exit(0)
@@ -46,18 +49,19 @@ class Edge(mp.Process):
 
     def init_mqtt(self):
         self.client = mqtt.Client(self.client_id)
-        if self.place != "executor":
-            self.client.on_publish = self.on_publish
-        else:
-            self.client.subscribe(self.config["MQTT"]["topic_plan"])
-        self.client.connect(self.config["MQTT"]["server"])
+        self.client.on_publish = self.on_publish
         self.client.username_pw_set(username="sciot", password="sciot_g6")
+        if self.place == "executor":
+            self.client.on_message = self.on_new_plan
+        self.client.connect(self.config["MQTT"]["server"])
         print("MQTT Client {} registered successfully!".format(self.client_id))
 
     def run(self) -> None:
         # Start mqtt loop
         self.client.loop_start()
-        if self.place != "executor":
+        if self.place == "executor":
+            self.client.subscribe(self.config["MQTT"]["topic_plan"])
+        else:
             while True:
                 self.task()
                 time.sleep(self.delay)
