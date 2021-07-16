@@ -15,7 +15,7 @@ def update_problem(place, data):
         with open(file_name, "r") as f:
             content = f.read()
             new_content = re.sub(r'temp r\) [0-9]+\.[0-9]+',
-                                 r'temp r) '+str(data["temperature"]), content)
+                                 r'temp r) '+str(float(data["temperature"])), content)
             new_content = re.sub(r'humidity r\) [0-9]+\.[0-9]+',
                                  r'humidity r) '+str(data["humidity"]), new_content)
             new_content = re.sub(r'lightintensity r\) [0-9]+',
@@ -30,7 +30,7 @@ def update_problem(place, data):
         with open(file_name, "r") as f:
             content = f.read()
             new_content = re.sub(r'bodytemp p\) [0-9]+\.[0-9]+',
-                                 r'bodytemp p) '+str(data["body_temperature"]), content)
+                                 r'bodytemp p) '+str(float(data["body_temperature"])), content)
             new_content = re.sub(r'motion p\) [0-9]',
                                  r'motion p) '+str(data["people_at_gate"]), new_content)
             new_content = re.sub(r'movement p\) [0-9]',

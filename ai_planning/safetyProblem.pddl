@@ -26,11 +26,11 @@
 
     ;movement ir sesnsor1 for entering
     (= (movement_value) 1)
-    (= (movement p) 1)
+    (= (movement p) 0)
 
     ; body temperature at the gate
     (= (bodytemp_limit) 35.0)
-    (= (bodytemp p) 20.0)
+    (= (bodytemp p) 29.125)
 
     ;motion ir sesnsor 2 at the gate
     (= (motion_value) 1)

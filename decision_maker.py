@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import pathlib
+from datetime import datetime
 import paho.mqtt.client as mqtt
 from threading import Thread
 from ai_planning.handle_pddl import get_plans, update_problem
 import configparser
 import json
+import logging
 
 
 """
@@ -32,7 +34,8 @@ def on_environment_message(client, userdata, message):
     payload = message.payload.decode("utf-8")
     print(" < {} received message: {}".format(client, payload))
 
-    # Todo: Update office problem file
+    logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S") +
+                 " received: " + payload)
     payload = json.loads(payload)
     update_problem("office", payload)
 
@@ -40,13 +43,16 @@ def on_environment_message(client, userdata, message):
     plans = get_plans("office")
     for act in plans:
         client.publish(topic_pub, str(act["name"]))
+        logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                     + " published plan: " + str(act["name"]))
 
 
 def on_entrance_message(client, userdata, message):
     payload = message.payload.decode("utf-8")
     print(" < {} received message: {}".format(client, payload))
 
-    # Todo: update entrance problem file
+    logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S") +
+                 " received: " + payload)
     payload = json.loads(payload)
     update_problem("entrance", payload)
 
@@ -54,6 +60,8 @@ def on_entrance_message(client, userdata, message):
     plans = get_plans("entrance")
     for act in plans:
         client.publish(topic_pub, str(act["name"]))
+        logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                     + " published plan: " + str(act["name"]))
 
 
 def on_entrance_connect(client, userdata, flags, rc):
@@ -98,6 +106,12 @@ class DecisionMaker(Thread):
 
 
 if __name__ == '__main__':
+
+    log_file_name = datetime.now().strftime("%Y-%m-%d_%H%M_log")
+    log_file_path = pathlib.Path(__file__).parent.joinpath("logs", log_file_name)
+    log_file_path.parent.mkdir(exist_ok=True)
+    log_file_path.touch(exist_ok=True)
+    logging.basicConfig(filename=str(log_file_path), level=logging.INFO)
 
     try:
 
