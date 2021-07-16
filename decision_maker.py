@@ -14,7 +14,7 @@ plans achieved by AI planning
 [--Thread 1--]
     Dealing with entrance data
 [--Thread 2--]
-    Dealing with environment data
+    Dealing with office data
 """
 
 config = configparser.ConfigParser()
@@ -32,12 +32,12 @@ def on_environment_message(client, userdata, message):
     payload = message.payload.decode("utf-8")
     print(" < {} received message: {}".format(client, payload))
 
-    # Todo: Update environment problem file
+    # Todo: Update office problem file
     payload = json.loads(payload)
-    update_problem("environment", payload)
+    update_problem("office", payload)
 
     # Get plans and publish
-    plans = get_plans("environment")
+    plans = get_plans("office")
     for act in plans:
         client.publish(topic_pub, str(act["name"]))
 
@@ -53,9 +53,7 @@ def on_entrance_message(client, userdata, message):
     # Get plans and publish
     plans = get_plans("entrance")
     for act in plans:
-        if "entered" in act or "temp_allow" in act:
-            for act in plans:
-                print(str(act["name"]))
+        client.publish(topic_pub, str(act["name"]))
 
 
 def on_entrance_connect(client, userdata, flags, rc):
@@ -79,6 +77,7 @@ class DecisionMaker(Thread):
         super(DecisionMaker, self).__init__()
         self.client = mqtt.Client(client_id)
         self.client.on_publish = on_publish
+        self.client.username_pw_set(username="sciot", password="sciot_g6")
         if content == "entrance":
             self.client.on_message = on_entrance_message
             self.client.on_connect = on_entrance_connect
@@ -103,7 +102,7 @@ if __name__ == '__main__':
     try:
 
         dm1 = DecisionMaker(client_id="dm1", server_url=serverUrl, content="entrance")
-        dm2 = DecisionMaker(client_id="dm2", server_url=serverUrl, content="environment")
+        dm2 = DecisionMaker(client_id="dm2", server_url=serverUrl, content="office")
 
         dm1.start()
         dm2.start()

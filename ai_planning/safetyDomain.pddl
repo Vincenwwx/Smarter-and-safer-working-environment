@@ -33,7 +33,7 @@
 
     )
    
-    ;ir sesnsor to detect person movement
+    ;ir sensor to detect person movement
    
     ;buzzer1 (off) says 'nothing'
     (:action switchoff_buzzer1

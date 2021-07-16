@@ -29,10 +29,10 @@ class Edge(mp.Process):
     at the entrance or inside the office
     """
     def __init__(self, place, mqtt_client_id, configuration, sensor_readers):
-        super.__init__(self)
+        super(Edge, self).__init__()
         self.client = None
         self.config = configuration
-        self.sensorReader = sensor_readers
+        self.sensor_reader = sensor_readers
 
         if place == "entrance":
             self.task = self.send_entrance_measurement
@@ -56,7 +56,7 @@ class Edge(mp.Process):
 
     def run(self) -> None:
         # Start mqtt loop
-        client.loop_start()
+        self.client.loop_start()
 
         while True:
             self.task()
@@ -111,13 +111,13 @@ class Edge(mp.Process):
 def on_new_plan(client, userdata, message):
 
     payload = message.payload.decode("utf-8")
-    # print(" < received plan " + payload)
+    print(" < received plan " + payload)
 
     # Office
-    if "switchon_heater" in payload:
-        heater_control.set_valve(1)
-    elif "switchoff_heater" in payload:
-        heater_control.set_valve(0)
+    if "switchon_humidifier" in payload:
+        print("[Actuator] Humidifier is turned on")
+    elif "switchoff_humidifier" in payload:
+        print("[Actuator] Humidifier is turned off")
     elif "switchon_light" in payload:
         leds_control.set_led("yellow", 1)
     elif "switchoff_light" in payload:
@@ -126,18 +126,16 @@ def on_new_plan(client, userdata, message):
         ventilator_control.set_ventilator(1)
     elif "switchoff_fan" in payload:
         ventilator_control.set_ventilator(0)
-    elif "switchon_heater" in payload:
-        heater_control.set_valve(1)
-    elif "switchoff_heater" in payload:
-        heater_control.set_valve(0)
     # Entrance
-    elif "allow" in payload:
+    elif "switchon_greenled_buzzer" in payload:
         buzzer_control.play_sound("come_in_please")
         leds_control.blink("green")
         door_control.set_door(1)
-    elif "deny" in payload:
+    elif "switchon_redled_buzzer" in payload:
         buzzer_control.play_sound("sorry_pls_try")
         leds_control.blink("red")
+    elif "switchoff_greenled_redled_buzzer" in payload:
+        pass
     # Unrecognized plans
     else:
         print("Unrecognized plan, please check!")
@@ -167,13 +165,16 @@ if __name__ == '__main__':
         ventilator_pin=config["Actuators"]["ventilator_pin"])
     buzzer_control = Buzzer_controller()
     door_control = Door_controller()
-    heater_control = Heater_controller()
 
     # ---------------- Data collectors -------------------
     entrance_guard = Edge("entrance", "Safe_Guard", config, sensor_reader)
     comfort_keeper = Edge("office", "Comfort", config, sensor_reader)
-    entrance_guard.start().join()
-    comfort_keeper.start().join()
+
+    entrance_guard.start()
+    entrance_guard.join()
+
+    comfort_keeper.start()
+    comfort_keeper.join()
 
     # ------------------- Executor -----------------------
     """

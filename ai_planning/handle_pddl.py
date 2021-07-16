@@ -10,7 +10,7 @@ def update_problem(place, data):
     :param data:    data (json)
     :return: None
     """
-    if place == "environment":
+    if place == "office":
         file_name = str(pathlib.Path(__file__).parent.joinpath("comfortProblem.pddl"))
         with open(file_name, "r") as f:
             content = f.read()
@@ -32,7 +32,9 @@ def update_problem(place, data):
             new_content = re.sub(r'bodytemp p\) [0-9]+\.[0-9]+',
                                  r'bodytemp p) '+str(data["body_temperature"]), content)
             new_content = re.sub(r'motion p\) [0-9]',
-                                 r'motion p) '+str(data["people_detected"]), new_content)
+                                 r'motion p) '+str(data["at_gate"]), new_content)
+            new_content = re.sub(r'movement p\) [0-9]',
+                                 r'movement p) '+str(data["enter"]), new_content)
             f.close()
         with open(file_name, "w") as f:
             f.write(new_content)
