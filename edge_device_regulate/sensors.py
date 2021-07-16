@@ -14,9 +14,10 @@ config.read(pathlib.Path(__file__).parents[1].joinpath("config.ini"))
 class SensorReader:
     def __init__(self):
         self.LDR = int(config["Sensors"]["LDR_pin"])
-        self.IR1 = int(config["Sensors"]["IR1_pin"])     # For entrance
-        self.IR2 = int(config["Sensors"]["IR1_pin"])     # For office
+        self.IR1 = int(config["Sensors"]["IR1_pin"])     # For movement at the entrance
+        self.IR2 = int(config["Sensors"]["IR2_pin"])     # For presence at the gate
         self.IR3 = int(config["Sensors"]["IR3_pin"])     # For office
+        self.IR4 = int(config["Sensors"]["IR4_pin"])     # For office
         DHT = config["Sensors"]["DHT_pin"]
         self.dhtDevice = adafruit_dht.DHT11(eval(DHT))
         self.device_file = ""
@@ -25,6 +26,7 @@ class SensorReader:
         GPIO.setup(self.IR1, GPIO.IN)
         GPIO.setup(self.IR2, GPIO.IN)
         GPIO.setup(self.IR3, GPIO.IN)
+        GPIO.setup(self.IR4, GPIO.IN)
 
         self.setupW1()
 
@@ -112,12 +114,27 @@ class SensorReader:
             print("\t [IR sensor] Not detected object at the entrance")
             return 0
 
+    def detect_presence_at_gate(self):
+        """
+        Detect object movement at the gate entrance by using IR sensor
+        !!! Attention:
+            when object detected, the GPIO input will be 0, otherwise 1
+        :return:    1: object detected
+                    0: no object
+        """
+        if not GPIO.input(self.IR2):
+            print("\t [IR sensor] Detected object at the gate")
+            return 1
+        else:
+            print("\t [IR sensor] Not detected object at the gate")
+            return 0
+
     def detect_movement_office(self):
         """
         Detect object movement inside the office by using IR sensor
         :return: 1:has object  0:no object
         """
-        if GPIO.input(self.IR2) or GPIO.input(self.IR3):
+        if GPIO.input(self.IR4) or GPIO.input(self.IR3):
             print("\t [IR sensor] Detected object in the office")
             return 1
         else:

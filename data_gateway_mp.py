@@ -30,9 +30,11 @@ class Edge(mp.Process):
     """
     def __init__(self, place, mqtt_client_id, configuration, sensor_readers):
         super(Edge, self).__init__()
+        self.client_id = mqtt_client_id
         self.client = None
         self.config = configuration
         self.sensor_reader = sensor_readers
+        self.place = place
 
         if place == "entrance":
             self.task = self.send_entrance_measurement
@@ -42,25 +44,31 @@ class Edge(mp.Process):
             self.task = self.send_env_measurement
             self.mqtt_pub = self.config["MQTT"]["topic_raw_data_environment"]
             self.delay = 10
+        elif place == "executor":
+            pass
         else:
             print("Please specify a valid place. Exit...")
             exit(0)
 
-        self.init_mqtt(mqtt_client_id, place)
+        self.init_mqtt()
 
-    def init_mqtt(self, client_id, place):
-        self.client = mqtt.Client(client_id)
-        self.client.on_publish = self.on_publish
+    def init_mqtt(self):
+        self.client = mqtt.Client(self.client_id)
+        if self.place != "executor":
+            self.client.on_publish = self.on_publish
+        else:
+            self.client.subscribe(self.config["MQTT"]["topic_plan"])
         self.client.connect(self.config["MQTT"]["server"])
-        print("MQTT Client {} registered successfully!".format(client_id))
+        self.client.username_pw_set(username="sciot", password="sciot_g6")
+        print("MQTT Client {} registered successfully!".format(self.client_id))
 
     def run(self) -> None:
         # Start mqtt loop
         self.client.loop_start()
-
-        while True:
-            self.task()
-            time.sleep(self.delay)
+        if self.place != "executor":
+            while True:
+                self.task()
+                time.sleep(self.delay)
 
     def _publish(magic):
         """
@@ -91,10 +99,12 @@ class Edge(mp.Process):
     @_publish
     def send_entrance_measurement(self):
         print("Sending # ENTRANCE # measurement...")
-        people_detected = self.sensor_reader.detect_movement_entrance()
+        people_enter = self.sensor_reader.detect_movement_entrance()
+        people_at_gate = self.sensor_reader.detect_presence_at_gate()
         body_temperature = self.sensor_reader.get_body_temperature()
         measurement = json.dumps({
-            "people_detected": people_detected,
+            "people_enter": people_enter,
+            "people_at_gate": people_at_gate,
             "body_temperature": body_temperature
         })
         print("====================================================")
@@ -107,39 +117,39 @@ class Edge(mp.Process):
     def on_publish(client, userdata, mid):
         print(" > published message: {}".format(mid))
 
+    @staticmethod
+    def on_new_plan(client, userdata, message):
 
-def on_new_plan(client, userdata, message):
+        payload = message.payload.decode("utf-8")
+        print(" < received plan " + payload)
 
-    payload = message.payload.decode("utf-8")
-    print(" < received plan " + payload)
-
-    # Office
-    if "switchon_humidifier" in payload:
-        print("[Actuator] Humidifier is turned on")
-    elif "switchoff_humidifier" in payload:
-        print("[Actuator] Humidifier is turned off")
-    elif "switchon_light" in payload:
-        leds_control.set_led("yellow", 1)
-    elif "switchoff_light" in payload:
-        leds_control.set_led("yellow", 0)
-    elif "switchon_fan" in payload:
-        ventilator_control.set_ventilator(1)
-    elif "switchoff_fan" in payload:
-        ventilator_control.set_ventilator(0)
-    # Entrance
-    elif "switchon_greenled_buzzer" in payload:
-        buzzer_control.play_sound("come_in_please")
-        leds_control.blink("green")
-        door_control.set_door(1)
-    elif "switchon_redled_buzzer" in payload:
-        buzzer_control.play_sound("sorry_pls_try")
-        leds_control.blink("red")
-    elif "switchoff_greenled_redled_buzzer" in payload:
-        pass
-    # Unrecognized plans
-    else:
-        print("Unrecognized plan, please check!")
-        raise
+        # Office
+        if "switchon_humidifier" in payload:
+            print("[Actuator] Humidifier is turned on")
+        elif "switchoff_humidifier" in payload:
+            print("[Actuator] Humidifier is turned off")
+        elif "switchon_light" in payload:
+            leds_control.set_led("yellow", 1)
+        elif "switchoff_light" in payload:
+            leds_control.set_led("yellow", 0)
+        elif "switchon_fan" in payload:
+            ventilator_control.set_ventilator(1)
+        elif "switchoff_fan" in payload:
+            ventilator_control.set_ventilator(0)
+        # Entrance
+        elif "switchon_greenled_buzzer" in payload:
+            buzzer_control.play_sound("come_in_please")
+            leds_control.blink("green")
+            door_control.set_door(1)
+        elif "switchon_redled_buzzer" in payload:
+            buzzer_control.play_sound("sorry_pls_try")
+            leds_control.blink("red")
+        elif "switchoff_greenled_redled_buzzer" in payload:
+            pass
+        # Unrecognized plans
+        else:
+            print("Unrecognized plan, please check!")
+            raise
 
 
 if __name__ == '__main__':
@@ -166,28 +176,20 @@ if __name__ == '__main__':
     buzzer_control = Buzzer_controller()
     door_control = Door_controller()
 
-    # ---------------- Data collectors -------------------
-    entrance_guard = Edge("entrance", "Safe_Guard", config, sensor_reader)
-    comfort_keeper = Edge("office", "Comfort", config, sensor_reader)
-
-    entrance_guard.start()
-    entrance_guard.join()
-
-    comfort_keeper.start()
-    comfort_keeper.join()
-
-    # ------------------- Executor -----------------------
-    """
-    Connect the client to MQTT server and register a device
-    """
-    client = mqtt.Client("Edge executor")
-    client.on_message = on_new_plan
-    client.connect(config["MQTT"]["server"])
-    print("Executor registered successfully!")
-    client.subscribe(config["MQTT"]["topic_plan"])
-
     try:
-        client.loop_forever()
+
+        entrance_guard = Edge("entrance", "Safe_Guard", config, sensor_reader)
+        comfort_keeper = Edge("office", "Comfort", config, sensor_reader)
+        executor = Edge("executor", "Executor", config, sensor_reader)
+
+        entrance_guard.start()
+        comfort_keeper.start()
+        executor.start()
+
+        comfort_keeper.join()
+        entrance_guard.join()
+        executor.join()
+
     except (KeyboardInterrupt, SystemExit):
         leds_control.off()
         ventilator_control.stop()
