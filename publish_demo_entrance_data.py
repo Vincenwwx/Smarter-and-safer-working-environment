@@ -15,7 +15,7 @@ def on_publish(client, userdata, mid):
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-client = mqtt.Client("Mocker")
+client = mqtt.Client("Mocker_entrance")
 client.on_publish = on_publish
 client.username_pw_set(username="sciot", password="sciot_g6")
 client.connect(config["MQTT"]["server"])
@@ -24,10 +24,9 @@ client.loop_start()
 times = 20
 for i in range(times):
     mock_data = json.dumps({
-        "temperature": 15.0,
-        "humidity": 30.1,
-        "lightness": 1,
-        "occupant_presence": 1
+        "people_enter": 1,
+        "body_temperature": 38.1,
+        "people_at_gate": 1,
     })
-    client.publish(config["MQTT"]["topic_raw_data_environment"], mock_data, 2)
+    client.publish(config["MQTT"]["topic_raw_data_entrance"], mock_data, 2)
     time.sleep(1)

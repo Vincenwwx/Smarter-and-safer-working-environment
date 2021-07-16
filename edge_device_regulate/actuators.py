@@ -121,7 +121,8 @@ class Buzzer_controller:
         self.sound_path = {
             "body_temp_check" : str(pathlib.Path(__file__).parent.joinpath("sounds", "body_temp_checking.mp3")),
             "come_in_please": str(pathlib.Path(__file__).parent.joinpath("sounds", "come_in_pls.mp3")),
-            "sorry_pls_try": str(pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3"))
+            "sorry_pls_try": str(pathlib.Path(__file__).parent.joinpath("sounds", "sorry_pls_try_again.mp3")),
+            "sorry_ur_not_allowed": str(pathlib.Path(__file__).parent.joinpath("sounds", "sry_ur_not_allowed.mp3"))
         }
         assert os.path.exists(self.sound_path["sorry_pls_try"]) == True
 

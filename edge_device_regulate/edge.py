@@ -157,7 +157,7 @@ class Edge(mp.Process):
             self.leds_control.blink("green")
             self.door_control.set_door(1)
         elif "switchon_redled_buzzer" in payload:
-            self.buzzer_control.play_sound("sorry_pls_try")
+            self.buzzer_control.play_sound("sorry_ur_not_allowed")
             self.leds_control.blink("red")
         elif "switchoff_greenled_redled_buzzer" in payload:
             pass
