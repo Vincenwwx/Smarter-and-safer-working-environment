@@ -1,8 +1,9 @@
 import multiprocessing as mp
+import threading
 import paho.mqtt.client as mqtt
 import time
 import json
-from actuators import LEDs_controller, Buzzer_controller, \
+from edge_device_regulate.actuators import LEDs_controller, Buzzer_controller, \
     Ventilator_controller, Door_controller
 
 
@@ -18,6 +19,8 @@ class Edge(mp.Process):
         self.config = configuration
         self.sensor_reader = sensor_readers
         self.place = place
+        self.sleep_timer = None
+        self.sleep_delay = 10
 
         if place == "entrance":
             self.task = self.send_entrance_measurement
@@ -36,8 +39,12 @@ class Edge(mp.Process):
             self.leds_control = LEDs_controller(red_address=self.config["Actuators"]["LED_red_pin"],
                                                 green_address=self.config["Actuators"]["LED_green_pin"],
                                                 yellow_address=self.config["Actuators"]["LED_yellow_pin"])
+            self.leds_control.set_led("green", 0)
+            self.leds_control.set_led("red", 0)
+            self.leds_control.set_led("yellow", 0)
             self.ventilator_control = Ventilator_controller(
                 ventilator_pin=self.config["Actuators"]["ventilator_pin"])
+            self.ventilator_control.set_ventilator(0)
             self.buzzer_control = Buzzer_controller()
             self.door_control = Door_controller()
 
@@ -58,10 +65,11 @@ class Edge(mp.Process):
 
     def run(self) -> None:
         # Start mqtt loop
-        self.client.loop_start()
         if self.place == "executor":
             self.client.subscribe(self.config["MQTT"]["topic_plan"])
+            self.client.loop_forever()
         else:
+            self.client.loop_start()
             while True:
                 self.task()
                 time.sleep(self.delay)
@@ -83,10 +91,12 @@ class Edge(mp.Process):
         print("Sending $ ENVIRONMENT $ measurement...")
         temperature, humidity = self.sensor_reader.get_environment_temperature_and_humidity()
         lightness = self.sensor_reader.get_environment_brightness()
+        occupant_presence = self.sensor_reader.detect_movement_office()
         measurement = json.dumps({
             "temperature": temperature,
             "humidity": humidity,
-            "lightness": lightness
+            "lightness": lightness,
+            "occupant_presence": occupant_presence
         })
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         print("")
@@ -121,16 +131,26 @@ class Edge(mp.Process):
         # Office
         if "switchon_humidifier" in payload:
             print("[Actuator] Humidifier is turned on")
+            self.refresh_sleep_mode()
         elif "switchoff_humidifier" in payload:
             print("[Actuator] Humidifier is turned off")
+            self.refresh_sleep_mode()
         elif "switchon_light" in payload:
             self.leds_control.set_led("yellow", 1)
+            self.refresh_sleep_mode()
         elif "switchoff_light" in payload:
             self.leds_control.set_led("yellow", 0)
+            self.refresh_sleep_mode()
         elif "switchon_fan" in payload:
             self.ventilator_control.set_ventilator(1)
+            self.refresh_sleep_mode()
         elif "switchoff_fan" in payload:
             self.ventilator_control.set_ventilator(0)
+            self.refresh_sleep_mode()
+        elif "noperson_wait_lightoff" in payload:
+            self.sleep_timer = threading.Timer(self.sleep_delay, self.leds_control.set_led, args=("yellow", 0,))
+        elif "noperson_wait_humidifieroff" in payload:
+            pass
         # Entrance
         elif "switchon_greenled_buzzer" in payload:
             self.buzzer_control.play_sound("come_in_please")
@@ -141,7 +161,18 @@ class Edge(mp.Process):
             self.leds_control.blink("red")
         elif "switchoff_greenled_redled_buzzer" in payload:
             pass
+        elif "switchon_buzzer1" in payload:
+            self.buzzer_control.play_sound("body_temp_check")
+        elif "switchoff_buzzer1" in payload:
+            pass
         # Unrecognized plans
         else:
             print("Unrecognized plan, please check!")
             raise
+
+    def refresh_sleep_mode(self):
+        try:
+            self.sleep_timer.cancel()
+            self.sleep_timer = threading.Timer(self.sleep_delay, self.leds_control.set_led, args=("yellow", 0,))
+        except:
+            pass

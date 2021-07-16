@@ -30,7 +30,7 @@
 
     ; body temperature at the gate
     (= (bodytemp_limit) 35.0)
-    (= (bodytemp p) 29.062)
+    (= (bodytemp p) 27.875)
 
     ;motion ir sesnsor 2 at the gate
     (= (motion_value) 1)

@@ -3,49 +3,55 @@
 (:objects
    r - room
    f - fan
-   p - person
    l - light
    h - humidifier
    m - message)
 
 (:init
-   
-    
+
+
     (off l)
-    (at-light l r p)
-    
+    (at-light l r)
+
     (off1 f)
-    (at-fan f r p)
+    (at-fan f r)
 
     (off2 h)
-    (at-humidifier h r p)
-    
-    
-    ;temperature Ventilator on
+    (at-humidifier h r)
+
+
+    ;presence of employee
+    (= (occupy_limit) 1)
+    (= (occupy r) 1)
+
+
+    ;temperature
     (= (temp_limit) 23)
-    (= (temp r) 26.0)
-    
-    ;temperature Ventilator off
+    (= (temp r) 20.0)
+
+    ;temperature
     (= (temp1_limit) 18)
-    (= (temp r) 26.0)
+    (= (temp r) 20.0)
 
     ;humidity
-    
+
     (= (humidity_limit) 70)
-    (= (humidity r) 56)
-    
+    (= (humidity r) 30.1)
+
 
     ;light intensity
     (= (lightintensity_limit) 1)
-    (= (lightintensity r) 0)
-   
-   
+    (= (lightintensity r) 1)
+
+
 
 )
 (:goal
     (and
+
+         (comfortable-light)
           (comfortable-temperature)
           (comfortable-humidity)
-          (brightness-sufficient)
+
     ))
 )

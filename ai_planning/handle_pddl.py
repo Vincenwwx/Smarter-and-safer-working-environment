@@ -20,6 +20,8 @@ def update_problem(place, data):
                                  r'humidity r) '+str(data["humidity"]), new_content)
             new_content = re.sub(r'lightintensity r\) [0-9]+',
                                  r'lightintensity r) '+str(data["lightness"]), new_content)
+            new_content = re.sub(r'occupy r\) [0-9]+',
+                                 r'occupy r) '+str(data["occupant_presence"]), new_content)
             f.close()
         with open(file_name, "w") as f:
             f.write(new_content)

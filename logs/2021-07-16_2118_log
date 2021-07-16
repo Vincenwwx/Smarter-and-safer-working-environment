@@ -1,0 +1,536 @@
+INFO:root:2021-07-16 21:18:12 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:13 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:13 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:14 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:18:14 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:18:14 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:18:14 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:18:16 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:16 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:16 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:20 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:20 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:20 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:24 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:24 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:24 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:24 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:18:25 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:18:25 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:18:25 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:18:28 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:28 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:28 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:32 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:18:32 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:18:32 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:18:35 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:18:35 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:18:35 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:18:35 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:19:29 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:19:29 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:19:29 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:19:29 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:19:29 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:30 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:30 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:33 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:34 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:34 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:37 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:37 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:37 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:39 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:19:39 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:19:39 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:19:39 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:19:41 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:41 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:41 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:45 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:45 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:45 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:49 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:49 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:49 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:49 received: {"temperature": 26, "humidity": 62, "lightness": 0}
+INFO:root:2021-07-16 21:19:50 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:19:50 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:19:50 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:19:52 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:53 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:53 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:19:56 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:19:57 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:19:57 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:00 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:00 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:00 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:00 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:00 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:00 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:00 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:04 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:04 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:04 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:08 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:08 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:08 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:10 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:10 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:10 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:10 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:12 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:12 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:12 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:16 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:16 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:16 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:19 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:20 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:20 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:20 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:21 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:21 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:21 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:23 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:23 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:23 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:27 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:27 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:27 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:31 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:31 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:31 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:31 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:31 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 28.0}
+INFO:root:2021-07-16 21:20:31 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:31 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:35 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:35 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:35 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:38 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:39 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:39 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:41 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:41 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:41 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:41 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:42 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:43 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:43 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:46 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 28.0}
+INFO:root:2021-07-16 21:20:47 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:47 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:50 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:50 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:50 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:51 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:20:51 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:20:51 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:20:51 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:20:54 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:54 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:54 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:20:58 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:20:58 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:20:58 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:01 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:21:01 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:21:01 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:21:01 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:21:02 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:02 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:02 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:06 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:06 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:06 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:09 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:09 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:09 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:11 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:21:12 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:21:12 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:21:12 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:21:13 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:13 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:13 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:17 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 28.0}
+INFO:root:2021-07-16 21:21:17 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:17 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:21 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:21 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:21 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:22 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:21:22 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:21:22 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:21:22 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:21:25 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:21:25 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:25 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:28 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 28.0}
+INFO:root:2021-07-16 21:21:29 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:21:29 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:21:32 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:21:32 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:21:32 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:21:32 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:24:04 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:24:04 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:24:04 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:24:04 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:24:04 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:24:04 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:24:04 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:24:08 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:24:08 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:24:08 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:18 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:26:19 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:26:19 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:26:19 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:26:19 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:26:19 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:19 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:23 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:26:23 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:23 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:27 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:26:27 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:27 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:29 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:26:29 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:26:29 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:26:29 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:26:31 received: {"people_enter": 0, "people_at_gate": 1, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:26:31 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:31 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:26:34 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:26:35 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:35 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:38 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:26:39 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:39 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:39 received: {"temperature": 26, "humidity": 60, "lightness": 0}
+INFO:root:2021-07-16 21:26:39 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:26:39 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:26:39 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:26:42 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:26:42 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:42 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:46 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:26:46 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:46 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:49 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:26:49 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:26:49 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:26:49 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:26:50 received: {"people_enter": 0, "people_at_gate": 1, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:26:50 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:50 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:26:54 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:26:54 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:54 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:57 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:26:58 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:26:58 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:26:59 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:27:00 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:27:00 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:27:00 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:29:35 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:29:36 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:29:36 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:29:36 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:29:36 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:29:36 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:36 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:40 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:29:40 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:40 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:43 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:29:44 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:44 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:45 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:29:46 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:29:46 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:29:46 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:29:47 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:29:48 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:48 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:51 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:29:52 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:52 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:55 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:29:55 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:55 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:29:56 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:29:56 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:29:56 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:29:56 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:29:59 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:29:59 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:29:59 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:03 received: {"people_enter": 0, "people_at_gate": 1, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:30:03 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:03 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:30:06 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:30:07 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:07 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:08 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:30:09 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:30:09 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:30:09 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:30:11 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:30:11 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:11 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:14 received: {"people_enter": 1, "people_at_gate": 1, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:30:14 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:14 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:30:18 received: {"people_enter": 0, "people_at_gate": 1, "body_temperature": 27.937}
+INFO:root:2021-07-16 21:30:18 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:18 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:30:18 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:30:19 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:30:19 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:30:19 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:30:22 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:22 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:22 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:26 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:26 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:26 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:29 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:30:29 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:30:29 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:30:29 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:30:30 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:30 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:30 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:33 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:34 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:34 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:37 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:38 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:38 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:39 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:30:39 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:30:39 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:30:39 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:30:41 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:41 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:41 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:45 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:45 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:45 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:49 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:49 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:49 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:49 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:30:50 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:30:50 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:30:50 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:30:53 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:53 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:53 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:30:56 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:30:57 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:30:57 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:00 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:00 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:00 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:00 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:00 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:31:00 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:00 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:04 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:31:04 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:04 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:08 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:08 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:08 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:10 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:10 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:10 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:10 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:12 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:12 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:12 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:16 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:16 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:16 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:20 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:20 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:20 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:20 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:20 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:20 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:20 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:23 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:24 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:24 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:27 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:28 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:28 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:30 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:31 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:31 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:31 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:31 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:31 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:31 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:35 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:35 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:35 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:39 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:39 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:39 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:41 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:41 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:41 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:41 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:42 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:43 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:43 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:46 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:47 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:47 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:31:51 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:31:51 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:31:51 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:31:51 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:31:51 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.812}
+INFO:root:2021-07-16 21:31:52 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:31:52 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:20 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:32:20 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:32:20 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:32:20 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:32:20 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:21 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:21 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:24 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:25 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:25 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:28 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:29 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:29 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:30 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:32:30 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:32:30 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:32:30 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:32:32 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:32 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:32 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:36 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:36 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:36 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:52 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:52 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:52 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:54 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:32:54 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:32:54 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:32:54 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:32:56 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:32:56 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:32:56 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:32:59 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:00 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:00 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:03 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:04 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:04 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:04 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:33:04 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:33:04 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:33:04 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:33:07 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:08 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:08 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:48 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:33:48 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:33:48 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:33:48 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:33:48 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:48 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:48 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:52 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:52 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:52 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:56 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:33:56 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:33:56 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:33:58 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:33:58 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:33:58 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:33:58 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:00 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:00 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:00 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:04 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:04 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:04 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:07 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:08 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:08 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:08 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:34:08 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:34:08 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:34:08 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:11 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:11 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:11 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:15 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:15 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:15 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:18 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:34:19 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:34:19 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:34:19 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:19 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:19 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:19 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:23 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:23 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:23 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:27 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:27 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:27 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:29 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:34:29 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:34:29 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:34:29 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:30 received: {"people_enter": 1, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:31 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:31 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:34 received: {"people_enter": 1, "people_at_gate": 1, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:35 published plan: (switchon_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:35 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:34:38 received: {"people_enter": 0, "people_at_gate": 1, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:38 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:38 published plan: (switchon_greenled_buzzer b g p m)
+INFO:root:2021-07-16 21:34:39 received: {"temperature": 26, "humidity": 61, "lightness": 0}
+INFO:root:2021-07-16 21:34:39 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:34:39 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:34:39 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:42 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:42 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:42 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:46 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:46 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:46 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:49 received: {"temperature": 26, "humidity": 62, "lightness": 0}
+INFO:root:2021-07-16 21:34:49 published plan: (switchon_humidifier h r p m)
+INFO:root:2021-07-16 21:34:49 published plan: (switchon_fan f r p m)
+INFO:root:2021-07-16 21:34:49 published plan: (switchoff_light l r p m)
+INFO:root:2021-07-16 21:34:50 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:50 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:50 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:54 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:54 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:54 published plan: (switchoff_buzzer1 b1 p m)
+INFO:root:2021-07-16 21:34:57 received: {"people_enter": 0, "people_at_gate": 0, "body_temperature": 27.875}
+INFO:root:2021-07-16 21:34:57 published plan: (switchoff_greenled_redled_buzzer b r g p m)
+INFO:root:2021-07-16 21:34:57 published plan: (switchoff_buzzer1 b1 p m)

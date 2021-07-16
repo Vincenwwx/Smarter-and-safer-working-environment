@@ -1,0 +1,17 @@
+INFO:root:2021-07-16 23:22:58 received: {"temperature": 17, "humidity": 60, "lightness": 1, "occupant_presence": 1}
+INFO:root:2021-07-16 23:22:58 published plan: (switchon_light l r m)
+INFO:root:2021-07-16 23:22:58 published plan: (switchoff_fan f r m)
+INFO:root:2021-07-16 23:22:58 published plan: (switchoff_humidifier h r m)
+INFO:root:2021-07-16 23:22:59 received: {"temperature": 17, "humidity": 60, "lightness": 1, "occupant_presence": 1}
+INFO:root:2021-07-16 23:22:59 published plan: (switchon_light l r m)
+INFO:root:2021-07-16 23:22:59 published plan: (switchoff_fan f r m)
+INFO:root:2021-07-16 23:22:59 published plan: (switchoff_humidifier h r m)
+INFO:root:2021-07-16 23:23:00 received: {"temperature": 17, "humidity": 60, "lightness": 1, "occupant_presence": 1}
+INFO:root:2021-07-16 23:23:00 published plan: (switchon_light l r m)
+INFO:root:2021-07-16 23:23:00 published plan: (switchoff_fan f r m)
+INFO:root:2021-07-16 23:23:00 published plan: (switchoff_humidifier h r m)
+INFO:root:2021-07-16 23:23:01 received: {"temperature": 17, "humidity": 60, "lightness": 1, "occupant_presence": 1}
+INFO:root:2021-07-16 23:23:01 published plan: (switchon_light l r m)
+INFO:root:2021-07-16 23:23:01 published plan: (switchoff_fan f r m)
+INFO:root:2021-07-16 23:23:01 published plan: (switchoff_humidifier h r m)
+INFO:root:2021-07-16 23:23:02 received: {"temperature": 17, "humidity": 60, "lightness": 1, "occupant_presence": 1}
