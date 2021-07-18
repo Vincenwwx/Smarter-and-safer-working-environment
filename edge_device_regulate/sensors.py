@@ -49,6 +49,7 @@ class SensorReader:
         """
         Get body temperature by using normal temperature sensor
         :return: temperature    temperature of body
+        Reference: https://www.circuitbasics.com/raspberry-pi-ds18b20-temperature-sensor-tutorial/
         """
         lines = self.read_temp_raw()
         while lines[0].strip()[-3:] != 'YES':
@@ -65,6 +66,7 @@ class SensorReader:
         """
         Get environment temperature and humidity by using DHT sensor
         :return: [temperature, humidity]
+        Reference: https://github.com/adafruit/Adafruit_CircuitPython_DHT/blob/main/examples/dht_simpletest.py
         """
         while True:
             try:
