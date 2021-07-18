@@ -28,7 +28,7 @@
     (= (movement p) 0)
     
     ; body temperature
-    (= (bodytemp_limit) 22)
+    (= (bodytemp_limit) 38)
     (= (bodytemp p) 20.0)
 
     ;motion ir sesnsor 2
