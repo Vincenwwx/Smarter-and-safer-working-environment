@@ -7,4 +7,4 @@ _Smarter and Safer Working Environment_
 ## Group members:
 - Wenxin Wang
 - Aswathi Rajendran
-- Minh Huy
+- Minh Huy Le
