@@ -7,7 +7,7 @@ _Smarter and Safer Working Environment_
 ## Group members:
 - Wenxin Wang
 - Aswathi Rajendran
-- Minh Huy
+- Minh Huy Le
 
 ## Usage
 ### Data gateway
@@ -29,4 +29,3 @@ In this project we build our broker using [mosquitto mqtt server](https://mosqui
 
 Attention: After installation, the mqtt server should be configured to allow **remote access** and
 the **authentication** method should also be specified.
-
