@@ -21,7 +21,7 @@ client.username_pw_set(username="sciot", password="sciot_g6")
 client.connect(config["MQTT"]["server"])
 client.loop_start()
 
-times = 20
+times = 1
 for i in range(times):
     mock_data = json.dumps({
         "people_enter": 1,

@@ -21,12 +21,12 @@ client.username_pw_set(username="sciot", password="sciot_g6")
 client.connect(config["MQTT"]["server"])
 client.loop_start()
 
-times = 20
+times = 12
 for i in range(times):
     mock_data = json.dumps({
         "temperature": 15.0,
         "humidity": 30.1,
-        "lightness": 1,
+        "lightness": 0,
         "occupant_presence": 1
     })
     client.publish(config["MQTT"]["topic_raw_data_environment"], mock_data, 2)
