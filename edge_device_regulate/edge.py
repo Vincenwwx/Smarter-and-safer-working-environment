@@ -57,7 +57,8 @@ class Edge(mp.Process):
     def init_mqtt(self):
         self.client = mqtt.Client(self.client_id)
         self.client.on_publish = self.on_publish
-        self.client.username_pw_set(username="sciot", password="sciot_g6")
+        self.client.username_pw_set(username=self.config["MQTT"]["username"],
+                                    password=self.config["MQTT"]["password"])
         if self.place == "executor":
             self.client.on_message = self.on_new_plan
         self.client.connect(self.config["MQTT"]["server"])

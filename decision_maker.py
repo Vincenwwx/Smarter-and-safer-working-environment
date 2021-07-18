@@ -19,14 +19,6 @@ plans achieved by AI planning
     Dealing with office data
 """
 
-config = configparser.ConfigParser()
-config.read("config.ini")
-
-serverUrl = config["MQTT"]["server"]
-topic_sub_entrance = config["MQTT"]["topic_raw_data_entrance"]
-topic_sub_environment = config["MQTT"]["topic_raw_data_environment"]
-topic_pub = config["MQTT"]["topic_plan"]
-
 
 # ------------------ Callback functions ----------------------
 # After receiving incoming messages (AI plans)
@@ -81,11 +73,12 @@ def on_publish(client, userdata, mid):
 
 class DecisionMaker(Thread):
 
-    def __init__(self, client_id, server_url, content):
+    def __init__(self, client_id, server_url, content, configuration):
         super(DecisionMaker, self).__init__()
         self.client = mqtt.Client(client_id)
         self.client.on_publish = on_publish
-        self.client.username_pw_set(username="sciot", password="sciot_g6")
+        self.client.username_pw_set(username=configuration["MQTT"]["username"],
+                                    password=configuration["MQTT"]["password"])
         if content == "entrance":
             self.client.on_message = on_entrance_message
             self.client.on_connect = on_entrance_connect
@@ -106,6 +99,14 @@ class DecisionMaker(Thread):
 
 
 if __name__ == '__main__':
+
+    config = configparser.ConfigParser()
+    config.read("config.ini")
+
+    serverUrl = config["MQTT"]["server"]
+    topic_sub_entrance = config["MQTT"]["topic_raw_data_entrance"]
+    topic_sub_environment = config["MQTT"]["topic_raw_data_environment"]
+    topic_pub = config["MQTT"]["topic_plan"]
 
     log_file_name = datetime.now().strftime("%Y-%m-%d_%H%M_log")
     log_file_path = pathlib.Path(__file__).parent.joinpath("logs", log_file_name)

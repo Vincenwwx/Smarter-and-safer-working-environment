@@ -69,8 +69,8 @@ if __name__ == "__main__":
         """
         try:
 
-            dm1 = DecisionMaker(client_id="dm1", server_url=serverUrl, content="entrance")
-            dm2 = DecisionMaker(client_id="dm2", server_url=serverUrl, content="office")
+            dm1 = DecisionMaker(client_id="dm1", server_url=serverUrl, content="entrance", configuration=config)
+            dm2 = DecisionMaker(client_id="dm2", server_url=serverUrl, content="office", configuration=config)
 
             dm1.start()
             dm2.start()
