@@ -34,7 +34,7 @@ def on_environment_message(client, userdata, message):
     # Get plans and publish
     plans = get_plans("office")
     for act in plans:
-        client.publish(topic_pub, str(act["name"]))
+        client.publish("working_building/environment/sensor_data", str(act["name"]))
         logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                      + " published plan: " + str(act["name"]))
 
@@ -51,19 +51,19 @@ def on_entrance_message(client, userdata, message):
     # Get plans and publish
     plans = get_plans("entrance")
     for act in plans:
-        client.publish(topic_pub, str(act["name"]))
+        client.publish("working_building/entrance/sensor_data", str(act["name"]))
         logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                      + " published plan: " + str(act["name"]))
 
 
 def on_entrance_connect(client, userdata, flags, rc):
     print("Connected with result code {0}".format(str(rc)))
-    client.subscribe(topic_sub_entrance)
+    client.subscribe("working_building/entrance/sensor_data")
 
 
 def on_environment_connect(client, userdata, flags, rc):
     print("Connected with result code {0}".format(str(rc)))
-    client.subscribe(topic_sub_environment)
+    client.subscribe("working_building/environment/sensor_data")
 
 
 # display all outgoing messages
